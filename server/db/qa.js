@@ -5,7 +5,8 @@ const client=new Client({
   user: process.env.pguser,
   host: process.env.pghost,
   database: process.env.pgdatabase,
-  port: process.env.pgport
+  port: process.env.pgport,
+  password: process.env.password
  })
 
 //  const client=new Client({
