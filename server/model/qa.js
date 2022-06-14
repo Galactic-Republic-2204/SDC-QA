@@ -35,7 +35,8 @@ module.exports = {
       if (err) {
         callback(err);
       } else {
-        callback(null, {product_id: productid, results: data.rows});
+        callback(null, {product_id: productid, results: data.rows[0]['results']});
+        // callback(null, data.rows[0])
       }
     })
   },

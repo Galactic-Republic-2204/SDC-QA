@@ -11,7 +11,7 @@ export default function () {
   // http.get(`http://localhost:3000/qa/questions/${Math.floor(Math.random()*100000)}/answers`);
 
   //2. test get questions
-  http.get(`http://localhost:3000/qa/questions/?id=${Math.floor(Math.random()*100000)}`);
+  // http.get(`http://localhost:3000/qa/questions/?id=${Math.floor(Math.random()*100000)}`);
 
   // //3. test post questions
   // let product_id = Math.random()*100000;
@@ -22,4 +22,12 @@ export default function () {
   //     product_id: product_id
   //   });
   // http.post(`http://localhost:3000/qa/questions`, post_questions, {headers: {'Content-Type': 'application/json' }});
+
+  //4. batch test
+  const base_url = 'http://localhost:3000/qa/questions';
+
+  http.batch([
+    ['GET', `${base_url}/?id=${Math.floor(Math.random()*100000)}&page=0&count=1`, null, null],
+    ['GET', `${base_url}/${Math.floor(Math.random()*100000)}/answers`, null, null]
+  ]);
 }
